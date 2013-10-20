@@ -1,0 +1,163 @@
+<body class="portfolio-body">
+
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	          <span data-icon="&#x268c;" aria-hidden="true"></span>            
+	      </a>
+          <a class="brand" href="/">Beth Post</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="home"><a href="/"><span data-icon="&#x2302;" aria-hidden="true"></span> Home</a></li>
+              <li class="portfolio active"><a href="/portfolio"><span data-icon="&#xe001;" aria-hidden="true"></span> Portfolio</a></li>
+              <li class="about"><a href="/about"><span data-icon="&#x2605;" aria-hidden="true"></span> About</a></li>       
+              <li class="contact"><a href="/contact"><span data-icon="&#xe000;" aria-hidden="true"></span> Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<div class="container-fluid">
+    	<div class="row-fluid focusrow">
+    		<div class="span8 doublewide">
+    			<figure>
+					<a href="{{ image src="{ main_image }" dim="770x2400<" quality="72" }}{{ image_url }}{{ /image }}" class="fancybox" title="{{ title }}">
+					{{ image src="{ main_image }" dim="770x2400<" quality="72" }}
+				    <img src="{{ image_url }}" />
+				    {{ /image }}
+					</a>
+    			<figcaption>
+    				<span aria-hidden="true" data-icon="&#x2927;"></span>&nbsp; embiggen!!!
+    			</figcaption>
+    			</figure>
+    		</div>
+    		<div class="span4 description">
+    		<h1 class="xtitle1">{{ title }}</h1>
+    		<p>{{ medium }}</p>
+    		<p>{{ datestamp format="Y" }}</p>
+    		</div>
+    	</div>
+	    
+	    {{ if details=="Yes" }}
+		<div class="row-fluid">
+			<div class="span3">
+			<h1 class="xtitle1">Details</h1>
+			<h1 class="xtitle2 visible-desktop" aria-hidden="true">Details</h1>
+			<h1 class="xtitle3 visible-desktop" aria-hidden="true">Details</h1>
+			</div>
+			{{ the_grid }}
+			<div class="span3">
+				<figure>
+					<a href="{{ detail }}" class="fancybox"  title="{{ caption }}"><img src="{{ if detail_thumbnail }} {{ detail_thumbnail }} {{ else }} {{ detail }} {{ endif }}" /></a>
+					<figcaption>
+    					<span aria-hidden="true" data-icon="&#x2927;"></span>&nbsp; embiggen!!!
+   					</figcaption>
+				</figure>
+			</div>
+			{{ /the_grid }}
+		</div> 
+		{{ endif }}
+		
+	</div>
+    
+   
+    <div class="container-fluid">
+	    <div class="row-fluid"> 
+        {{ if next }}
+        	{{ entries:listing folder="portfolio" conditions="url:{next}" }}
+			<div class="span4">
+		    	<figure>
+			    	<a href="{{ next }}">
+							{{ if thumbnail }}
+							{{ image src="{ thumbnail }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ else }}
+							{{ image src="{ main_image }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ endif }}
+<!-- 			    	<img src="{{ if thumbnail }} {{ thumbnail }} {{ else }} {{ main_image }} {{ endif }}" /> -->
+			    	</a>
+			    		<figcaption class="visible">
+				    		{{ title }}
+					    </figcaption>
+				</figure>
+			</div>	 
+        	{{ /entries:listing }}
+        	{{ else }}
+        	{{ entries:listing folder="portfolio" limit="1" sort_dir="desc"}}
+        	<div class="span4">
+		    	<figure>
+			    	<a href="{{ url }}">
+							{{ if thumbnail }}
+							{{ image src="{ thumbnail }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ else }}
+							{{ image src="{ main_image }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ endif }}
+<!-- 			    	<img src="{{ if thumbnail }} {{ thumbnail }} {{ else }} {{ main_image }} {{ endif }}" /> -->
+			    	</a>
+			    		<figcaption class="visible">
+				    		{{ title }}
+						</figcaption>
+				</figure>
+			</div>
+			{{ /entries:listing }}
+        {{ endif }}   
+        {{ if prev }}
+        	{{ entries:listing folder="portfolio" conditions="url:{prev}" }}
+        	<div class="span4">
+		    	<figure>
+			    	<a href="{{ prev }}">
+							{{ if thumbnail }}
+							{{ image src="{ thumbnail }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ else }}
+							{{ image src="{ main_image }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ endif }}
+<!-- 			    	<img src="{{ if thumbnail }} {{ thumbnail }} {{ else }} {{ main_image }} {{ endif }}" /> -->
+			    	</a>
+			    		<figcaption class="visible">
+				    		{{ title }}
+						</figcaption>
+				</figure>
+			</div>	
+        	{{ /entries:listing }}
+        	{{ else }}
+        	{{ entries:listing folder="portfolio" limit="1" sort_dir="asc"}}
+        	<div class="span4">
+		    	<figure>
+			    	<a href="{{ url }}">
+							{{ if thumbnail }}
+							{{ image src="{ thumbnail }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ else }}
+							{{ image src="{ main_image }" dim="300x300#" quality="72" }}
+				        	<img src="{{ image_url }}" alt="{{ title }}" />
+				        	{{ /image }}
+				        	{{ endif }}
+<!-- 			    	<img src="{{ if thumbnail }} {{ thumbnail }} {{ else }} {{ main_image }} {{ endif }}" /> -->
+			    	</a>
+			    		<figcaption class="visible">
+				    		{{ title }}
+						</figcaption>
+				</figure>
+			</div>
+			{{ /entries:listing }}
+        {{ endif }}       
+          
+	    	<div class="span4">
+	    		{{ nav from="/" }}{{ if is_parent }} <a class="xtitle1" href="{{ url }}">Back to Portfolio</a>{{ endif }}{{ /nav }}
+	    	</div>
+	    </div>
+    </div> <!-- /container -->
